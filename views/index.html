@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
@@ -112,10 +112,7 @@
     tono.value = "";
   }
 
-  function nuevaCancion() {
-    cancion;
-    artista;
-    tono;
+  function nuevaCancion() { 
     let data = {
       titulo: cancion.value,
       artista: artista.value,
@@ -126,11 +123,14 @@
   }
 
   function eliminarCancion(i, id) {
-    axios.delete(url + "?id=" + id).then(() => {
+    const urlWithQuery = `${url}?id=${id}`;
+    const urlWithParams = `${url}/${id}`;
+    axios.delete(urlWithQuery).then(() => {
       alert("Canción " + canciones[i].titulo + " eliminada");
       getData();
     });
   }
+
 
   function prepararCancion(i, id) {
     cancion.value = canciones[i].titulo;
